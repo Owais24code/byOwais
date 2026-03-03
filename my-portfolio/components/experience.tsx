@@ -51,7 +51,7 @@ export function Experience() {
                   <ul className="space-y-2">
                     {exp.highlights.map((highlight, i) => (
                       <li key={i} className="text-base text-muted-foreground flex gap-3">
-                        <span className="text-accent flex-shrink-0 mt-1.5">•</span>
+                        <span className="text-accent shrink-0 mt-1.5">•</span>
                         <span>{highlight}</span>
                       </li>
                     ))}

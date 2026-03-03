@@ -2,7 +2,21 @@ import Link from 'next/link'
 import { ExternalLink, Github } from 'lucide-react'
 
 export function Projects() {
-  const projects = [
+  interface ProjectLink {
+    label: string
+    href: string
+    icon: React.ComponentType<{ size: number }>
+  }
+
+  interface Project {
+    title: string
+    description: string
+    tech: string[]
+    highlights: string[]
+    links: ProjectLink[]
+  }
+
+  const projects: Project[] = [
     {
       title: 'Certify - Certificate Generation Platform',
       description: 'Automated certificate generation platform with template customization, bulk processing, and email delivery serving 500+ requests with 99% success rate.',
@@ -81,7 +95,7 @@ export function Projects() {
                   <ul className="space-y-2 mb-4">
                     {project.highlights.map((highlight, i) => (
                       <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                        <span className="text-accent flex-shrink-0">→</span>
+                        <span className="text-accent shrink-0">→</span>
                         <span>{highlight}</span>
                       </li>
                     ))}
