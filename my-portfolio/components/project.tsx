@@ -1,22 +1,8 @@
 import Link from 'next/link'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink, GitBranchIcon } from 'lucide-react'
 
 export function Projects() {
-  interface ProjectLink {
-    label: string
-    href: string
-    icon: React.ComponentType<{ size: number }>
-  }
-
-  interface Project {
-    title: string
-    description: string
-    tech: string[]
-    highlights: string[]
-    links: ProjectLink[]
-  }
-
-  const projects: Project[] = [
+  const projects = [
     {
       title: 'Certify - Certificate Generation Platform',
       description: 'Automated certificate generation platform with template customization, bulk processing, and email delivery serving 500+ requests with 99% success rate.',
@@ -27,8 +13,8 @@ export function Projects() {
         'Bulk certificate processing with progress tracking',
       ],
       links: [
-        // { label: 'Live Demo', href: '#', icon: ExternalLink },
-        // { label: 'GitHub', href: '#', icon: Github },
+        { label: 'Live Demo', href: 'https://github.com/Owais24code/certify', icon: ExternalLink },
+      { label: 'GitHub', href: 'https://github.com/Owais24code/certify', icon: GitBranchIcon },
       ],
     },
     {
@@ -41,8 +27,8 @@ export function Projects() {
         'Automated database cleanup jobs for performance',
       ],
       links: [
-        // { label: 'Live Demo', href: '#', icon: ExternalLink },
-        // { label: 'GitHub', href: '#', icon: Github },
+         { label: 'Live Demo', href: 'https://github.com/Owais24code/flight_status', icon: ExternalLink },
+         { label: 'GitHub', href: 'https://github.com/Owais24code/flight_status', icon: GitBranchIcon },
       ],
     },
     {
@@ -55,28 +41,31 @@ export function Projects() {
         'Automated invoice reminders reducing follow-up time by 90%',
       ],
       links: [
-        // { label: 'Live Demo', href: '#', icon: ExternalLink },
-        // { label: 'GitHub', href: '#', icon: Github },
+        { label: 'Live Demo', href: 'https://github.com/Owais24code/invoice_app', icon: ExternalLink },
+        { label: 'GitHub', href: 'https://github.com/Owais24code/invoice_app', icon: GitBranchIcon },
       ],
     },
   ]
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-8 lg:px-12 bg-card">
+    <section id="projects" className="py-20 px-4 sm:px-8 lg:px-12 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Left side - Section title */}
           <div className="lg:w-1/3">
             <h3 className="text-2xl font-bold tracking-tight mb-4">Projects</h3>
-            <div className="w-12 h-0.5 bg-accent"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-r from-accent to-primary"></div>
           </div>
 
           {/* Right side - Projects grid */}
           <div className="lg:w-2/3">
             <div className="space-y-12">
               {projects.map((project, idx) => (
-                <div key={idx} className="border border-border rounded-lg p-6 hover:border-accent transition-colors">
-                  <h4 className="text-xl font-bold mb-2">{project.title}</h4>
+                <div 
+                  key={idx} 
+                  className="border border-border rounded-lg p-6 hover:border-accent hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <h4 className="text-xl font-bold mb-2 text-foreground">{project.title}</h4>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
 
                   {/* Tech stack */}
@@ -84,7 +73,7 @@ export function Projects() {
                     {project.tech.map((tech, i) => (
                       <span
                         key={i}
-                        className="text-xs px-3 py-1 bg-secondary text-secondary-foreground rounded-full font-medium"
+                        className="text-xs px-3 py-1 bg-secondary text-secondary-foreground rounded-full font-medium hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
                       >
                         {tech}
                       </span>
